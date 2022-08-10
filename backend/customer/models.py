@@ -11,3 +11,6 @@ class Customer(models.Model):
     operator_code = models.IntegerField()
     # тег (произвольная метка
     timezone = models.CharField(max_length=32, choices=TIMEZONES, default='UTC')
+
+    def __str__(self):
+        return self.phone_number
