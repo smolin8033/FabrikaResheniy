@@ -1,16 +1,22 @@
-import pytz
-from django.core.validators import RegexValidator
 from django.db import models
+
+from core.constants import TIMEZONES
+from core.validators import phone_number_regex
 
 
 class Customer(models.Model):
-    TIMEZONES = tuple(zip(pytz.all_timezones, pytz.all_timezones))
-
-    phone_number_regex = RegexValidator(regex=r'^7\d{10}$')
+    """
+    Клиент
+    """
     phone_number = models.CharField(validators=[phone_number_regex], max_length=11, unique=True)
     operator_code = models.IntegerField()
-    # тег (произвольная метка
+    tag = models.CharField(max_length=50, blank=True)
     timezone = models.CharField(max_length=32, choices=TIMEZONES, default='UTC')
 
     def __str__(self):
         return self.phone_number
+
+    def save(self, *args, **kwargs):
+        if self.operator_code is None:
+            self.operator_code = int(self.phone_number[1:4])
+        super().save(*args, **kwargs)

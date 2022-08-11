@@ -2,6 +2,9 @@ from django.db import models
 
 
 class Message(models.Model):
+    """
+    Сообщение
+    """
     created_at = models.DateTimeField(auto_now_add=True)
     status = models.BooleanField(default=False)
     # id рассылки, в рамках которой было отправлено данное сообщение
@@ -10,4 +13,4 @@ class Message(models.Model):
     customer = models.ForeignKey('customer.Customer', on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.mailing
+        return str(self.mailing)
