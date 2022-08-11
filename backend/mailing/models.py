@@ -6,7 +6,7 @@ class Mailing(models.Model):
     """
     Рассылка
     """
-    uuid = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    uuid = models.UUIDField(primary_key=True, editable=False, default=uuid.uuid4)
     start_datetime = models.DateTimeField(auto_now_add=True, verbose_name='Время рассылки')
     message_text = models.TextField()
     # фильтр свойств клиентов, на которых должна быть произведена рассылка (код мобильного оператора, тег)
