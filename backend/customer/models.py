@@ -1,3 +1,5 @@
+import uuid
+
 from django.db import models
 
 from core.constants import TIMEZONES
@@ -8,8 +10,9 @@ class Customer(models.Model):
     """
     Клиент
     """
+    uuid = models.UUIDField(primary_key=True, editable=False, default=uuid.uuid4)
     phone_number = models.CharField(validators=[phone_number_regex], max_length=11, unique=True)
-    operator_code = models.IntegerField()
+    operator_code = models.IntegerField(null=True)
     tag = models.CharField(max_length=50, blank=True)
     timezone = models.CharField(max_length=32, choices=TIMEZONES, default='UTC')
 

@@ -23,6 +23,7 @@ INSTALLED_APPS = [
     'customer.apps.CustomerConfig',
     'message.apps.MessageConfig',
     # side-packages
+    'rest_framework',
     'drf_spectacular',
 ]
 
