@@ -4,6 +4,8 @@ services:
     build: .
     command: >
       sh -c "python backend/manage.py makemigrations && python backend/manage.py migrate && python backend/manage.py runserver 0.0.0.0:8000"
+    volumes:
+      - ./:/usr/src/notifications
     ports:
       - '8000:8000'
 
@@ -17,7 +19,18 @@ services:
 
   celery:
     build: .
-    command: celery -A config worker -Q discounts,garbage_remove
+    command: celery -A backend/config worker -Q discounts,garbage_remove
+    volumes:
+      - .:/usr/src/notifications/backend/celery
+    depends_on:
+      - redis
+      - backend
+
+  celery-beat:
+    build: .
+    command: celery -A backend/config beat -l info
+    volumes:
+      - .:/usr/src/notifications/backend/celery
     depends_on:
       - redis
       - backend

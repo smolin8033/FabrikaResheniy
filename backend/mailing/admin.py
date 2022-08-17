@@ -1,8 +1,13 @@
 from django.contrib import admin
 
-from mailing.models import Mailing
+from .models import Mailing, MailingFilter
 
 
 @admin.register(Mailing)
 class MailingAdmin(admin.ModelAdmin):
+    pass
+
+
+@admin.register(MailingFilter)
+class MailingFilterAdmin(admin.ModelAdmin):
     pass
