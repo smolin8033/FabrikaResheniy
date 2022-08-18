@@ -16,10 +16,10 @@ class Mailing(models.Model):
     Рассылка
     """
     uuid = models.UUIDField(primary_key=True, editable=False, default=uuid.uuid4)
-    start_datetime = models.DateTimeField(auto_now_add=True, verbose_name='Время рассылки')
+    start_datetime = models.DateTimeField(verbose_name='Время старта рассылки')
     message_text = models.TextField()
     filter_field = models.ForeignKey(MailingFilter, blank=True, null=True, on_delete=models.SET_NULL)
-    end_datetime = models.DateTimeField()
+    end_datetime = models.DateTimeField(verbose_name='Время окончания рассылки')
 
     def __str__(self):
         return self.message_text[:50]
