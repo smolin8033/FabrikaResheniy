@@ -1,5 +1,6 @@
 import datetime
 
+from drf_spectacular.utils import extend_schema
 from rest_framework.viewsets import ModelViewSet
 
 from customer.models import Customer
@@ -8,6 +9,7 @@ from .models import Mailing
 from .serializers import MailingSerializer
 
 
+@extend_schema(tags=['Рассылки'])
 class MailingViewSet(ModelViewSet):
     """
     Вьюсет для Рассылки
