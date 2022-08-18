@@ -1,12 +1,14 @@
 import datetime
 
 from drf_spectacular.utils import extend_schema
+from rest_framework import status
+from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet
 
 from customer.models import Customer
 from message.models import Message
 from .models import Mailing
-from .serializers import MailingSerializer
+from .serializers import MailingSerializer, MailingFilterSerializer
 
 
 @extend_schema(tags=['Рассылки'])
@@ -17,8 +19,21 @@ class MailingViewSet(ModelViewSet):
     queryset = Mailing.objects.all()
     serializer_class = MailingSerializer
 
-    def perform_create(self, serializer):
-        mailing = serializer.save()
+    def create(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+
+        filter_data = serializer.validated_data.pop('filter_field')
+
+        filter_serializer = MailingFilterSerializer(data=filter_data)
+        filter_serializer.is_valid(raise_exception=True)
+
+        self.perform_create(serializer, filter_serializer=filter_serializer)
+        headers = self.get_success_headers(serializer.data)
+        return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
+
+    def perform_create(self, serializer, *args, **kwargs):
+        mailing = serializer.save(filter_field=kwargs.get('filter_serializer').save())
 
         customers = self.filter_customers(mailing)
         self.create_messages(mailing, customers)
@@ -32,7 +47,7 @@ class MailingViewSet(ModelViewSet):
         return customers
 
     @staticmethod
-    def create_messages(customers, mailing):
+    def create_messages(mailing, customers):
         messages = []
         for customer in customers:
             messages.append(Message(
