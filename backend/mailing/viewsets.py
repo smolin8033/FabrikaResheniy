@@ -8,6 +8,7 @@ from rest_framework.viewsets import ModelViewSet
 
 from customer.models import Customer
 from message.models import Message
+from message.tasks import sample_task
 from .models import Mailing
 from .serializers import MailingSerializer, MailingFilterSerializer
 
@@ -71,5 +72,4 @@ class MailingViewSet(ModelViewSet):
         # messages_ids = messages.objects.values_list('uuid', flat=True) ->
         # AttributeError: 'list' object has no attribute 'objects'
         messages_ids = [message.uuid for message in messages]
-        print(messages_ids)
-        return messages
+        sample_task()

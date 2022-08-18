@@ -28,7 +28,7 @@ services:
 
   celery-beat:
     build: ./backend
-    command: celery -A backend/config beat -l info
+    command: celery -A config beat -l info
     volumes:
       - ./backend:/usr/src/notifications/
     depends_on:

@@ -1,6 +1,6 @@
 from pathlib import Path
 from celery.schedules import crontab
-import mailing.tasks
+import message.tasks
 
 
 BASE_DIR = Path(__file__).resolve().parent.parent
