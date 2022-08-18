@@ -1,11 +1,11 @@
 version: '3.7'
 services:
   backend:
-    build: .
+    build: ./backend
     command: >
-      sh -c "python backend/manage.py makemigrations && python backend/manage.py migrate && python backend/manage.py runserver 0.0.0.0:8000"
+      sh -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
     volumes:
-      - ./:/usr/src/notifications
+      - ./backend:/usr/src/notifications
     ports:
       - '8000:8000'
 
@@ -18,19 +18,19 @@ services:
       - '6379:6379'
 
   celery:
-    build: .
-    command: celery -A backend/config worker -Q discounts,garbage_remove
+    build: ./backend
+    command: celery -A config worker --loglevel=info
     volumes:
-      - .:/usr/src/notifications/backend/celery
+      - ./backend:/usr/src/notifications
     depends_on:
       - redis
       - backend
 
   celery-beat:
-    build: .
+    build: ./backend
     command: celery -A backend/config beat -l info
     volumes:
-      - .:/usr/src/notifications/backend/celery
+      - ./backend:/usr/src/notifications/
     depends_on:
       - redis
       - backend
