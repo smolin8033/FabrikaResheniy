@@ -20,18 +20,19 @@ class MailingViewSet(ModelViewSet):
     def perform_create(self, serializer):
         mailing = serializer.save()
 
-        self.filter_customers(mailing)
+        customers = self.filter_customers(mailing)
+        self.create_messages(mailing, customers)
 
-    def filter_customers(self, mailing):
+    @staticmethod
+    def filter_customers(mailing):
         customers = Customer.objects.filter(
             operator_code=mailing.filter_field.operator_code,
             tag=mailing.filter_field.tag
         )
-
-        self.create_messages(mailing, customers)
         return customers
 
-    def create_messages(self, customers, mailing):
+    @staticmethod
+    def create_messages(customers, mailing):
         messages = []
         for customer in customers:
             messages.append(Message(
