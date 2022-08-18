@@ -2,7 +2,7 @@ from rest_framework.serializers import (
     ModelSerializer,
     IntegerField,
     CharField,
-    DateField,
+    DateTimeField,
 )
 
 from .models import Mailing, MailingFilter
@@ -29,9 +29,9 @@ class MailingSerializer(ModelSerializer):
     """
     Сериалайзер для модели Рассылки
     """
-    start_datetime = DateField(required=True)
+    start_datetime = DateTimeField(required=True)
     message_text = CharField(required=True)
-    end_datetime = DateField(required=True)
+    end_datetime = DateTimeField(required=True)
     filter_field = MailingFilterSerializer()
 
     class Meta:

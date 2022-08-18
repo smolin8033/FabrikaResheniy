@@ -1,5 +1,6 @@
 import datetime
 
+from django.utils import timezone
 from drf_spectacular.utils import extend_schema
 from rest_framework import status
 from rest_framework.response import Response
@@ -35,8 +36,16 @@ class MailingViewSet(ModelViewSet):
     def perform_create(self, serializer, *args, **kwargs):
         mailing = serializer.save(filter_field=kwargs.get('filter_serializer').save())
 
+        self.check_time(mailing)
+
+    def check_time(self, mailing):
+        if mailing.start_datetime <= timezone.now() <= mailing.end_datetime:
+            self.check_customers(mailing)
+
+    def check_customers(self, mailing):
         customers = self.filter_customers(mailing)
-        self.create_messages(mailing, customers)
+        if customers:
+            self.create_messages(mailing, customers)
 
     @staticmethod
     def filter_customers(mailing):
@@ -57,4 +66,10 @@ class MailingViewSet(ModelViewSet):
             ))
 
         messages = Message.objects.bulk_create(messages)
+        # messages_ids = Message.objects.values_list('uuid', flat=True) -> это вообще вся таблица Message
+        # messages_ids = Message.objects.filter(uuid__in=messages).values_list('uuid', flat=True) -> не работает
+        # messages_ids = messages.objects.values_list('uuid', flat=True) ->
+        # AttributeError: 'list' object has no attribute 'objects'
+        messages_ids = [message.uuid for message in messages]
+        print(messages_ids)
         return messages
