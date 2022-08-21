@@ -1,3 +1,4 @@
+from django.utils import timezone
 from rest_framework.serializers import (
     ModelSerializer,
     IntegerField,
@@ -29,9 +30,9 @@ class MailingSerializer(ModelSerializer):
     """
     Сериалайзер для модели Рассылки
     """
-    start_datetime = DateTimeField(required=True)
+    start_datetime = DateTimeField(required=True, format="%Y-%m-%d %H:%M:%S")
     message_text = CharField(required=True)
-    end_datetime = DateTimeField(required=True)
+    end_datetime = DateTimeField(required=True, format="%Y-%m-%d %H:%M:%S")
     filter_field = MailingFilterSerializer()
 
     class Meta:

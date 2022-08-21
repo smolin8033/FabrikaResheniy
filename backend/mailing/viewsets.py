@@ -40,7 +40,7 @@ class MailingViewSet(ModelViewSet):
         self.check_time(mailing)
 
     def check_time(self, mailing):
-        if mailing.start_datetime <= timezone.now() <= mailing.end_datetime:
+        if mailing.start_datetime <= timezone.localtime() <= mailing.end_datetime:
             self.check_customers(mailing)
 
     def check_customers(self, mailing):
@@ -67,9 +67,5 @@ class MailingViewSet(ModelViewSet):
             ))
 
         messages = Message.objects.bulk_create(messages)
-        # messages_ids = Message.objects.values_list('uuid', flat=True) -> это вообще вся таблица Message
-        # messages_ids = Message.objects.filter(uuid__in=messages).values_list('uuid', flat=True) -> не работает
-        # messages_ids = messages.objects.values_list('uuid', flat=True) ->
-        # AttributeError: 'list' object has no attribute 'objects'
         messages_ids = [message.uuid for message in messages]
-        sample_task()
+        sample_task.delay()
