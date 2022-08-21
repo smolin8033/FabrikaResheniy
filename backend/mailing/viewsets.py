@@ -8,7 +8,7 @@ from rest_framework.viewsets import ModelViewSet
 
 from customer.models import Customer
 from message.models import Message
-from message.tasks import sample_task
+from message.tasks import send_messages
 from .models import Mailing
 from .serializers import MailingSerializer, MailingFilterSerializer
 
@@ -68,4 +68,4 @@ class MailingViewSet(ModelViewSet):
 
         messages = Message.objects.bulk_create(messages)
         messages_ids = [message.uuid for message in messages]
-        sample_task.delay()
+        send_messages.delay(messages_ids)
