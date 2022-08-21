@@ -14,6 +14,8 @@ def send_messages(messages_ids):
     """
     Отправка сообщений
     """
-    pass
-    # for message_id in messages_ids:
-    #     response = requests.post()
+    print(messages_ids)
+    for message_id in messages_ids:
+        response = requests.post(data={'msgId': message_id})
+        print(response)
+        return response
