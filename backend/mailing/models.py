@@ -1,4 +1,3 @@
-import uuid
 from django.db import models
 
 
@@ -18,7 +17,6 @@ class Mailing(models.Model):
     """
     Рассылка
     """
-    uuid = models.UUIDField(primary_key=True, editable=False, default=uuid.uuid4)
     start_datetime = models.DateTimeField(verbose_name='Время старта рассылки')
     message_text = models.TextField(verbose_name='Текст сообщения')
     filter_field = models.ForeignKey(MailingFilter, verbose_name='Фильтрация', blank=True, null=True,
