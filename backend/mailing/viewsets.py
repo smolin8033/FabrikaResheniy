@@ -75,4 +75,4 @@ class MailingViewSet(ModelViewSet):
         for setting primary keys on objects created using bulk_create() when using PostgreSQL was added
         """
         messages_ids = [message.id for message in messages]
-        send_messages.delay(messages_ids)
+        # send_messages.delay(messages_ids)
