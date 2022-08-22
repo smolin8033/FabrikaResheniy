@@ -67,12 +67,5 @@ class MailingViewSet(ModelViewSet):
             ))
 
         messages = Message.objects.bulk_create(messages)
-        print(messages[0].id)
-        print(messages[1].id)
-        """
-        Changed in Django
-        1.10: Support
-        for setting primary keys on objects created using bulk_create() when using PostgreSQL was added
-        """
         messages_ids = [message.id for message in messages]
-        # send_messages.delay(messages_ids)
+        send_messages.delay(messages_ids)
