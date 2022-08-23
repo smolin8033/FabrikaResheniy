@@ -1,16 +1,14 @@
-import datetime
-
-from django.utils import timezone
 from drf_spectacular.utils import extend_schema
+
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet
 
-from customer.models import Customer
-from message.models import Message
-from message.tasks import send_messages
+from services.check_conditions import check_conditions
+from services.serializer_validation_service import serialize_and_validate_mailing, serialize_and_validate_filter
+
 from .models import Mailing
-from .serializers import MailingSerializer, MailingFilterSerializer
+from .serializers import MailingSerializer
 
 
 @extend_schema(tags=['Рассылки'])
@@ -22,50 +20,32 @@ class MailingViewSet(ModelViewSet):
     serializer_class = MailingSerializer
 
     def create(self, request, *args, **kwargs):
-        serializer = self.get_serializer(data=request.data)
-        serializer.is_valid(raise_exception=True)
+        mailing_serializer = serialize_and_validate_mailing(request)
 
-        filter_data = serializer.validated_data.pop('filter_field')
+        filter_serializer = serialize_and_validate_filter(mailing_serializer)
 
-        filter_serializer = MailingFilterSerializer(data=filter_data)
-        filter_serializer.is_valid(raise_exception=True)
-
-        self.perform_create(serializer, filter_serializer=filter_serializer)
-        headers = self.get_success_headers(serializer.data)
-        return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
+        self.perform_create(mailing_serializer, filter_serializer=filter_serializer)
+        headers = self.get_success_headers(mailing_serializer.data)
+        return Response(mailing_serializer.data, status=status.HTTP_201_CREATED, headers=headers)
 
     def perform_create(self, serializer, *args, **kwargs):
         mailing = serializer.save(filter_field=kwargs.get('filter_serializer').save())
 
-        self.check_time(mailing)
+        check_conditions(mailing)
 
-    def check_time(self, mailing):
-        if mailing.start_datetime <= timezone.localtime() <= mailing.end_datetime:
-            self.check_customers(mailing)
+    def update(self, request, *args, **kwargs):
+        partial = kwargs.pop('partial', False)
+        instance = self.get_object()
+        serializer = self.get_serializer(instance, data=request.data, partial=partial)
+        serializer.is_valid(raise_exception=True)
+        self.perform_update(serializer)
 
-    def check_customers(self, mailing):
-        customers = self.filter_customers(mailing)
-        if customers:
-            self.create_messages(mailing, customers)
+        if getattr(instance, '_prefetched_objects_cache', None):
+            # If 'prefetch_related' has been applied to a queryset, we need to
+            # forcibly invalidate the prefetch cache on the instance.
+            instance._prefetched_objects_cache = {}
 
-    @staticmethod
-    def filter_customers(mailing):
-        customers = Customer.objects.filter(
-            operator_code=mailing.filter_field.operator_code,
-            tag=mailing.filter_field.tag
-        )
-        return customers
+        return Response(serializer.data)
 
-    @staticmethod
-    def create_messages(mailing, customers):
-        messages = []
-        for customer in customers:
-            messages.append(Message(
-                created_at=datetime.datetime.now(),
-                mailing=mailing,
-                customer=customer
-            ))
-
-        messages = Message.objects.bulk_create(messages)
-        messages_ids = [message.id for message in messages]
-        send_messages.delay(messages_ids)
+    def perform_update(self, serializer):
+        serializer.save()
