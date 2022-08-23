@@ -38,6 +38,7 @@ class MailingSerializer(ModelSerializer):
     class Meta:
         model = Mailing
         fields = (
+            'id',
             'start_datetime',
             'message_text',
             'end_datetime',
