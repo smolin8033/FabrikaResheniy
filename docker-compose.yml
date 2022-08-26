@@ -44,5 +44,20 @@ services:
       - redis
       - backend
 
+  flower:
+    build: ./backend
+    command: celery -A config flower
+    volumes:
+      - ./backend:/usr/src/notifications/
+    ports:
+      - 5555:5555
+    environment:
+      CELERY_BROKER_URL: redis://redis
+      CELERY_RESULT_BACKEND: redis://redis
+    depends_on:
+      - celery
+      - redis
+      - backend
+
 volumes:
   postgres_data:
