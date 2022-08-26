@@ -5,6 +5,9 @@ from message.tasks import send_messages
 
 
 def create_messages(mailing, customers):
+    """
+    Создает сообщения и передает их в tasks для celery
+    """
     messages = []
     for customer in customers:
         messages.append(Message(
