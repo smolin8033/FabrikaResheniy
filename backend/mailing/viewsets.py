@@ -56,7 +56,7 @@ class MailingViewSet(ModelViewSet):
 
         filter_serializer = kwargs.get('filter_serializer')
         instance = kwargs.get('instance')
-        filter_instance = instance.filter_instance_field
+        filter_instance = instance.filter_field
 
         updated_filter = self.update_mailing_filter(filter_instance, filter_serializer)
         updated_mailing = self.update_mailing_instance(instance, serializer, updated_filter)
