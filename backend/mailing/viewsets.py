@@ -22,7 +22,11 @@ class MailingViewSet(ModelViewSet):
     queryset = Mailing.objects.all()
     serializer_class = MailingSerializer
 
+    @extend_schema(description='Создание рассылки')
     def create(self, request, *args, **kwargs):
+        """
+        ну и что что пишу докстринг
+        """
         mailing_serializer = serialize_and_validate_mailing(request)
 
         filter_serializer = serialize_and_validate_filter(request, mailing_serializer)
