@@ -1,10 +1,11 @@
-from mailing.serializers import MailingSerializer, MailingFilterSerializer
+from mailing.serializers import MailingFilterSerializer, MailingUpdateSerializer, \
+    MailingCreateSerializer
 
 
 def serialize_and_validate_mailing(request, instance=None):
-    serializer = MailingSerializer(data=request.data)
+    serializer = MailingCreateSerializer(data=request.data)
     if request.method == 'PUT':
-        serializer = MailingSerializer(instance, data=request.data)
+        serializer = MailingUpdateSerializer(instance, data=request.data)
     serializer.is_valid(raise_exception=True)
 
     return serializer

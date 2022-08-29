@@ -11,7 +11,7 @@ from services.serializer_validation_service import (
 )
 
 from .models import Mailing
-from .serializers import MailingSerializer
+from .serializers import MailingCreateSerializer
 
 
 @extend_schema(tags=['Рассылки'])
@@ -20,7 +20,7 @@ class MailingViewSet(ModelViewSet):
     Вьюсет для Рассылки
     """
     queryset = Mailing.objects.all()
-    serializer_class = MailingSerializer
+    serializer_class = MailingCreateSerializer
 
     @extend_schema(description='Создание рассылки')
     def create(self, request, *args, **kwargs):
@@ -77,10 +77,14 @@ class MailingViewSet(ModelViewSet):
 
     @staticmethod
     def update_mailing_instance(instance, serializer, updated_filter):
-        instance.start_datetime = serializer.validated_data['start_datetime']
-        instance.message_text = serializer.validated_data['message_text']
+        for key in serializer.validated_data.keys():
+            instance.key = serializer.validated_data.get(key)
+
         instance.filter_field = updated_filter
-        instance.end_datetime = serializer.validated_data['end_datetime']
+        # instance.start_datetime = serializer.validated_data['start_datetime']
+        # instance.message_text = serializer.validated_data['message_text']
+        # instance.filter_field = updated_filter
+        # instance.end_datetime = serializer.validated_data['end_datetime']
 
         instance.save()
         return instance
