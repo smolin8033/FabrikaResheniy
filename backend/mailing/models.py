@@ -1,4 +1,5 @@
 from django.db import models
+from django.shortcuts import get_object_or_404
 
 
 class MailingFilter(models.Model):
@@ -25,3 +26,8 @@ class Mailing(models.Model):
 
     def __str__(self):
         return self.message_text[:50]
+
+    def delete(self, *args, **kwargs):
+        filter_instance = get_object_or_404(MailingFilter, mailing=self)
+        filter_instance.delete()
+        super(Mailing, self).delete(*args, **kwargs)
