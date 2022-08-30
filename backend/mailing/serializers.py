@@ -3,8 +3,10 @@ from rest_framework.serializers import (
     IntegerField,
     CharField,
     DateTimeField,
+    SerializerMethodField
 )
 
+from message.models import Message
 from .models import Mailing, MailingFilter
 
 
@@ -24,6 +26,38 @@ class MailingFilterSerializer(ModelSerializer):
             'tag'
         )
 
+
+class MailingListSerializer(ModelSerializer):
+    """
+    Сериалайзер для просмотра рассылок и количества
+    отправленных сообщений с группировкой по статусам
+    """
+    start_datetime = DateTimeField(read_only=True, format="%Y-%m-%d %H:%M:%S")
+    message_text = CharField(read_only=True)
+    end_datetime = DateTimeField(read_only=True, format="%Y-%m-%d %H:%M:%S")
+    filter_field = MailingFilterSerializer(read_only=True)
+    messages_sent = SerializerMethodField(read_only=True, default=0)
+    messages_not_sent = SerializerMethodField(read_only=True, default=0)
+
+    class Meta:
+        model = Mailing
+        fields = (
+            'id',
+            'start_datetime',
+            'message_text',
+            'end_datetime',
+            'filter_field',
+            'messages_sent',
+            'messages_not_sent'
+        )
+
+    def get_messages_sent(self, instance):
+        number_of_messages_sent = Message.objects.filter(mailing=instance, status=True).count()
+        return number_of_messages_sent
+
+    def get_messages_not_sent(self, instance):
+        number_of_messages_not_sent = Message.objects.filter(mailing=instance, status=False).count()
+        return number_of_messages_not_sent
 
 class MailingCreateSerializer(ModelSerializer):
     """

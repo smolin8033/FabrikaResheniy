@@ -11,7 +11,8 @@ from services.serializer_validation_service import (
 )
 
 from .models import Mailing
-from .serializers import MailingCreateSerializer, MailingFilterSerializer, MailingUpdateSerializer
+from .serializers import MailingCreateSerializer, MailingFilterSerializer, MailingUpdateSerializer, \
+    MailingListSerializer
 
 
 @extend_schema(tags=['Рассылки'])
@@ -19,8 +20,15 @@ class MailingViewSet(ModelViewSet):
     """
     Вьюсет для Рассылки
     """
-    queryset = Mailing.objects.select_related('filter_field').all()
-    serializer_class = MailingCreateSerializer
+    def get_serializer_class(self):
+        serializer_class = MailingCreateSerializer
+        if self.action == 'list':
+            serializer_class = MailingListSerializer
+        return serializer_class
+
+    def get_queryset(self):
+        queryset = Mailing.objects.select_related('filter_field').all()
+        return queryset
 
     @extend_schema(description='Создание рассылки')
     def create(self, request, *args, **kwargs):

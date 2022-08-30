@@ -4,6 +4,9 @@ import requests
 
 from celery import shared_task
 from celery.utils.log import get_task_logger
+from django.shortcuts import get_object_or_404
+
+from message.models import Message
 
 logger = get_task_logger(__name__)
 
@@ -24,6 +27,7 @@ def send_messages(messages_ids):
         }
         service_url = f'https://probe.fbrq.cloud/v1/send/{message_id}'
         response = requests.post(service_url, headers=headers, data=json.dumps(data))
-# response = requests.post(service_url, data={'msgId': message_id}, headers=headers)
-# print(response)
-# print(response.ok)
+        if response.ok:
+            message = get_object_or_404(Message, id=message_id)
+            message.status = True
+            message.save()
