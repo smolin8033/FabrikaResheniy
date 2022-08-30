@@ -8,6 +8,7 @@ def check_conditions(mailing):
     """
     Проверяет два условия, чтобы создать и выслать сообщения, если True
     """
+
     time_checked = check_time(mailing)
     customers_checked = check_customers(mailing)
 
