@@ -51,11 +51,13 @@ class MailingListSerializer(ModelSerializer):
             'messages_not_sent'
         )
 
-    def get_messages_sent(self, instance):
+    @staticmethod
+    def get_messages_sent(instance):
         number_of_messages_sent = Message.objects.filter(mailing=instance, status=True).count()
         return number_of_messages_sent
 
-    def get_messages_not_sent(self, instance):
+    @staticmethod
+    def get_messages_not_sent(instance):
         number_of_messages_not_sent = Message.objects.filter(mailing=instance, status=False).count()
         return number_of_messages_not_sent
 
