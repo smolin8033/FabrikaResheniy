@@ -11,7 +11,7 @@ from services.serializer_validation_service import (
 )
 
 from .models import Mailing
-from .serializers import MailingCreateSerializer
+from .serializers import MailingCreateSerializer, MailingFilterSerializer, MailingUpdateSerializer
 
 
 @extend_schema(tags=['Рассылки'])
@@ -19,14 +19,11 @@ class MailingViewSet(ModelViewSet):
     """
     Вьюсет для Рассылки
     """
-    queryset = Mailing.objects.all()
+    queryset = Mailing.objects.select_related('filter_field').all()
     serializer_class = MailingCreateSerializer
 
     @extend_schema(description='Создание рассылки')
     def create(self, request, *args, **kwargs):
-        """
-        ну и что что пишу докстринг
-        """
         mailing_serializer = serialize_and_validate_mailing(request)
 
         filter_serializer = serialize_and_validate_filter(request, mailing_serializer)
@@ -35,8 +32,9 @@ class MailingViewSet(ModelViewSet):
         headers = self.get_success_headers(mailing_serializer.data)
         return Response(mailing_serializer.data, status=status.HTTP_201_CREATED, headers=headers)
 
-    def perform_create(self, serializer, *args, **kwargs):
-        mailing = serializer.save(filter_field=kwargs.get('filter_serializer').save())
+    def perform_create(self, mailing_serializer, filter_serializer):
+        filter_instance = filter_serializer.save()
+        mailing = mailing_serializer.save(filter_field=filter_instance)
 
         check_conditions(mailing)
 
@@ -47,44 +45,29 @@ class MailingViewSet(ModelViewSet):
         filter_serializer = serialize_and_validate_filter(request, mailing_serializer, instance)
 
         self.perform_update(
+            instance,
             mailing_serializer,
-            instance=instance,
-            filter_serializer=filter_serializer
+            filter_serializer
         )
         return Response(mailing_serializer.data)
 
-    def perform_update(self, serializer, *args, **kwargs):
-        # mailing = serializer.save(filter_field=kwargs.get('filter_serializer').save())
-        # не понимаю, почему не работает
-        # Правильно здесь работает? Не совсем понимаю, как должно правильно все обновляться
-
-        filter_serializer = kwargs.get('filter_serializer')
-        instance = kwargs.get('instance')
-        filter_instance = instance.filter_field
+    def perform_update(self, instance, mailing_serializer, filter_serializer):
+        mailing_instance = instance
+        filter_instance = mailing_instance.filter_field
 
         updated_filter = self.update_mailing_filter(filter_instance, filter_serializer)
-        updated_mailing = self.update_mailing_instance(instance, serializer, updated_filter)
+        updated_mailing = self.update_mailing_instance(mailing_instance, mailing_serializer, updated_filter)
 
         check_conditions(updated_mailing)
 
     @staticmethod
-    def update_mailing_filter(filter_instance, filter_serializer):
-        filter_instance.operator_code = filter_serializer.validated_data['operator_code']
-        filter_instance.tag = filter_serializer.validated_data['tag']
-
-        filter_instance.save()
-        return filter_instance
+    def update_mailing_filter(instance, filter_serializer):
+        instance.__dict__.update(**filter_serializer.validated_data)
+        instance.save()
+        return instance
 
     @staticmethod
-    def update_mailing_instance(instance, serializer, updated_filter):
-        for key in serializer.validated_data.keys():
-            instance.key = serializer.validated_data.get(key)
-
-        instance.filter_field = updated_filter
-        # instance.start_datetime = serializer.validated_data['start_datetime']
-        # instance.message_text = serializer.validated_data['message_text']
-        # instance.filter_field = updated_filter
-        # instance.end_datetime = serializer.validated_data['end_datetime']
-
+    def update_mailing_instance(instance, mailing_serializer, updated_filter):
+        instance.__dict__.update(**mailing_serializer.validated_data, filter_field=updated_filter)
         instance.save()
         return instance
