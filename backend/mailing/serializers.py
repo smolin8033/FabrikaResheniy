@@ -3,7 +3,7 @@ from rest_framework.serializers import (
     IntegerField,
     CharField,
     DateTimeField,
-    SerializerMethodField
+    SerializerMethodField,
 )
 
 from message.models import Message
@@ -21,10 +21,7 @@ class MailingFilterSerializer(ModelSerializer):
 
     class Meta:
         model = MailingFilter
-        fields = (
-            'operator_code',
-            'tag'
-        )
+        fields = ("operator_code", "tag")
 
 
 class MailingListSerializer(ModelSerializer):
@@ -32,23 +29,26 @@ class MailingListSerializer(ModelSerializer):
     Сериалайзер для просмотра рассылок и количества
     отправленных сообщений с группировкой по статусам
     """
+
     start_datetime = DateTimeField(read_only=True, format="%Y-%m-%d %H:%M:%S")
     message_text = CharField(read_only=True)
     end_datetime = DateTimeField(read_only=True, format="%Y-%m-%d %H:%M:%S")
     filter_field = MailingFilterSerializer(read_only=True)
-    messages_sent = SerializerMethodField(read_only=True, default=0)
-    messages_not_sent = SerializerMethodField(read_only=True, default=0)
+    # messages_sent = SerializerMethodField(read_only=True, default=0)
+    # messages_not_sent = SerializerMethodField(read_only=True, default=0)
+    msg_status_true_count = IntegerField(read_only=True)
+    msg_status_false_count = IntegerField(read_only=True)
 
     class Meta:
         model = Mailing
         fields = (
-            'id',
-            'start_datetime',
-            'message_text',
-            'end_datetime',
-            'filter_field',
-            'messages_sent',
-            'messages_not_sent'
+            "id",
+            "start_datetime",
+            "message_text",
+            "end_datetime",
+            "filter_field",
+            "msg_status_true_count",
+            "msg_status_false_count",
         )
 
     @staticmethod
@@ -61,10 +61,12 @@ class MailingListSerializer(ModelSerializer):
         number_of_messages_not_sent = Message.objects.filter(mailing=instance, status=False).count()
         return number_of_messages_not_sent
 
+
 class MailingCreateSerializer(ModelSerializer):
     """
     Сериалайзер для создания модели Рассылки
     """
+
     start_datetime = DateTimeField(required=True, format="%Y-%m-%d %H:%M:%S")
     message_text = CharField(required=True)
     end_datetime = DateTimeField(required=True, format="%Y-%m-%d %H:%M:%S")
@@ -72,19 +74,14 @@ class MailingCreateSerializer(ModelSerializer):
 
     class Meta:
         model = Mailing
-        fields = (
-            'id',
-            'start_datetime',
-            'message_text',
-            'end_datetime',
-            'filter_field'
-        )
+        fields = ("id", "start_datetime", "message_text", "end_datetime", "filter_field")
 
 
 class MailingUpdateSerializer(ModelSerializer):
     """
     Сериалайзер для обновления модели Рассылки
     """
+
     start_datetime = DateTimeField(required=False, format="%Y-%m-%d %H:%M:%S")
     message_text = CharField(required=False)
     end_datetime = DateTimeField(required=False, format="%Y-%m-%d %H:%M:%S")
@@ -92,10 +89,4 @@ class MailingUpdateSerializer(ModelSerializer):
 
     class Meta:
         model = Mailing
-        fields = (
-            'id',
-            'start_datetime',
-            'message_text',
-            'end_datetime',
-            'filter_field'
-        )
+        fields = ("id", "start_datetime", "message_text", "end_datetime", "filter_field")

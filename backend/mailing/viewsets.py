@@ -1,6 +1,8 @@
+from django.db.models import Subquery, OuterRef, Count, Q
 from drf_spectacular.utils import extend_schema
 
 from rest_framework import status
+from rest_framework.fields import IntegerField
 from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet
 
@@ -9,29 +11,34 @@ from message.serializers import MessageListSerializer
 from services.check_conditions import check_conditions
 from services.serializer_validation_service import (
     serialize_and_validate_mailing,
-    serialize_and_validate_filter
+    serialize_and_validate_filter,
 )
 
 from .models import Mailing
-from .serializers import MailingCreateSerializer, MailingFilterSerializer, MailingUpdateSerializer, \
-    MailingListSerializer
+from .serializers import (
+    MailingCreateSerializer,
+    MailingListSerializer,
+)
 
 
-@extend_schema(tags=['Рассылки'])
+@extend_schema(tags=["Рассылки"])
 class MailingViewSet(ModelViewSet):
     """
     Вьюсет для Рассылки
     """
+
     def get_serializer_class(self):
         serializer_class = MailingCreateSerializer
-        if self.action == 'list':
+        if self.action == "list":
             serializer_class = MailingListSerializer
-        elif self.action == 'retrieve':
+        elif self.action == "retrieve":
             serializer_class = MessageListSerializer
         return serializer_class
 
     def get_queryset(self):
-        queryset = Mailing.objects.select_related('filter_field').all()
+        queryset = Mailing.objects.select_related("filter_field").all()
+        if self.action == self.list.__name__:
+            queryset = queryset.annotate_msg_count()
         return queryset
 
     def retrieve(self, request, *args, **kwargs):
@@ -42,7 +49,7 @@ class MailingViewSet(ModelViewSet):
         serializer = self.get_serializer(messages, many=True)
         return Response(serializer.data)
 
-    @extend_schema(description='Создание рассылки')
+    @extend_schema(description="Создание рассылки")
     def create(self, request, *args, **kwargs):
         mailing_serializer = serialize_and_validate_mailing(request)
 
@@ -63,12 +70,7 @@ class MailingViewSet(ModelViewSet):
 
         mailing_serializer = serialize_and_validate_mailing(request, instance)
         filter_serializer = serialize_and_validate_filter(request, mailing_serializer, instance)
-
-        self.perform_update(
-            instance,
-            mailing_serializer,
-            filter_serializer
-        )
+        self.perform_update(instance, mailing_serializer, filter_serializer)
         return Response(mailing_serializer.data)
 
     def perform_update(self, instance, mailing_serializer, filter_serializer):
@@ -76,7 +78,9 @@ class MailingViewSet(ModelViewSet):
         filter_instance = mailing_instance.filter_field
 
         updated_filter = self.update_mailing_filter(filter_instance, filter_serializer)
-        updated_mailing = self.update_mailing_instance(mailing_instance, mailing_serializer, updated_filter)
+        updated_mailing = self.update_mailing_instance(
+            mailing_instance, mailing_serializer, updated_filter
+        )
 
         check_conditions(updated_mailing)
 
