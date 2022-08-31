@@ -4,6 +4,8 @@ from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet
 
+from message.models import Message
+from message.serializers import MessageListSerializer
 from services.check_conditions import check_conditions
 from services.serializer_validation_service import (
     serialize_and_validate_mailing,
@@ -24,11 +26,21 @@ class MailingViewSet(ModelViewSet):
         serializer_class = MailingCreateSerializer
         if self.action == 'list':
             serializer_class = MailingListSerializer
+        elif self.action == 'retrieve':
+            serializer_class = MessageListSerializer
         return serializer_class
 
     def get_queryset(self):
         queryset = Mailing.objects.select_related('filter_field').all()
         return queryset
+
+    def retrieve(self, request, *args, **kwargs):
+        instance = self.get_object()
+
+        messages = Message.objects.filter(mailing=instance)
+
+        serializer = self.get_serializer(messages, many=True)
+        return Response(serializer.data)
 
     @extend_schema(description='Создание рассылки')
     def create(self, request, *args, **kwargs):
