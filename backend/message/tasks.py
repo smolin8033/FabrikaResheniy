@@ -4,6 +4,7 @@ import requests
 
 from celery import shared_task
 from celery.utils.log import get_task_logger
+from django.db import transaction
 from django.shortcuts import get_object_or_404
 
 from message.models import Message
@@ -29,5 +30,6 @@ def send_messages(messages_ids):
         response = requests.post(service_url, headers=headers, data=json.dumps(data))
         if response.ok:
             message = get_object_or_404(Message, id=message_id)
-            message.status = True
-            message.save()
+            with transaction.atomic():
+                message.status = True
+                message.save()
