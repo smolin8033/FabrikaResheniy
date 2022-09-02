@@ -30,15 +30,9 @@ class MailingViewSet(ModelViewSet):
 
     def get_queryset(self):
         queryset = Mailing.objects.select_related('filter_field').all()
+        if self.action == self.list.__name__:
+            queryset = queryset.annotate_msg_count()
         return queryset
-
-    def retrieve(self, request, *args, **kwargs):
-        instance = self.get_object()
-
-        messages = Message.objects.filter(mailing=instance)
-
-        serializer = self.get_serializer(messages, many=True)
-        return Response(serializer.data)
 
     @extend_schema(description='Создание рассылки')
     def create(self, request, *args, **kwargs):

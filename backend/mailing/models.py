@@ -1,5 +1,7 @@
 from django.db import models
 
+from mailing.querysets import MailingQuerySet
+
 
 class MailingFilter(models.Model):
     """
@@ -22,6 +24,7 @@ class Mailing(models.Model):
     filter_field = models.ForeignKey(MailingFilter, verbose_name='Фильтрация', blank=True, null=True,
                                      on_delete=models.SET_NULL)
     end_datetime = models.DateTimeField(verbose_name='Время окончания рассылки')
+    objects = MailingQuerySet.as_manager()
 
     def __str__(self):
         return self.message_text[:50]

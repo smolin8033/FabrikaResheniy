@@ -2,8 +2,7 @@ from rest_framework.serializers import (
     ModelSerializer,
     IntegerField,
     CharField,
-    DateTimeField,
-    SerializerMethodField
+    DateTimeField
 )
 
 from message.models import Message
@@ -36,8 +35,8 @@ class MailingListSerializer(ModelSerializer):
     message_text = CharField(read_only=True)
     end_datetime = DateTimeField(read_only=True, format="%Y-%m-%d %H:%M:%S")
     filter_field = MailingFilterSerializer(read_only=True)
-    messages_sent = SerializerMethodField(read_only=True, default=0)
-    messages_not_sent = SerializerMethodField(read_only=True, default=0)
+    msg_sent_count = IntegerField(read_only=True)
+    msg_not_sent_count = IntegerField(read_only=True)
 
     class Meta:
         model = Mailing
@@ -47,19 +46,10 @@ class MailingListSerializer(ModelSerializer):
             'message_text',
             'end_datetime',
             'filter_field',
-            'messages_sent',
-            'messages_not_sent'
+            'msg_sent_count',
+            'msg_not_sent_count'
         )
 
-    @staticmethod
-    def get_messages_sent(instance):
-        number_of_messages_sent = Message.objects.filter(mailing=instance, status=True).count()
-        return number_of_messages_sent
-
-    @staticmethod
-    def get_messages_not_sent(instance):
-        number_of_messages_not_sent = Message.objects.filter(mailing=instance, status=False).count()
-        return number_of_messages_not_sent
 
 class MailingCreateSerializer(ModelSerializer):
     """
