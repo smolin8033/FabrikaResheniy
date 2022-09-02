@@ -26,8 +26,6 @@ class MailingViewSet(ModelViewSet):
         serializer_class = MailingCreateSerializer
         if self.action == 'list':
             serializer_class = MailingListSerializer
-        elif self.action == 'retrieve':
-            serializer_class = MessageListSerializer
         return serializer_class
 
     def get_queryset(self):

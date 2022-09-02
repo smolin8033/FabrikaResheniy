@@ -21,6 +21,7 @@ from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
 
 from customer.routers import router as customers_router
 from mailing.routers import router as mailings_router
+from message.routers import router as messages_router
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -28,5 +29,6 @@ urlpatterns = [
     path('api/docs/', SpectacularSwaggerView.as_view(url_name='schema'), name='swagger-ui'),
     path('api/', include(customers_router.urls)),
     path('api/', include(mailings_router.urls)),
+    path('api/', include(messages_router.urls)),
     path('__debug__/', include(debug_toolbar.urls)),
 ]
