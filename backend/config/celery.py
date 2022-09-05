@@ -22,7 +22,7 @@ app.autodiscover_tasks()
 
 app.conf.beat_schedule = {
     'add-every-30-seconds': {
-        'task': 'tasks.add',
+        'task': 'send_not_sent_message',
         'schedule': 30.0,
         'args': (16, 16)
     },
