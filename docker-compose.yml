@@ -37,9 +37,10 @@ services:
 
   celery-beat:
     build: ./backend
-    command: celery -A config beat -l info
+    command: celery -A config worker -B -l info -Q periodic
     volumes:
-      - ./backend:/usr/src/notifications/
+      - ./backend:/usr/src/notificat
+      - ions/
     depends_on:
       - redis
       - backend

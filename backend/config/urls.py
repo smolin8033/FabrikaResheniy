@@ -24,11 +24,11 @@ from mailing.routers import router as mailings_router
 from message.routers import router as messages_router
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('api/schema/', SpectacularAPIView.as_view(), name='schema'),
-    path('api/docs/', SpectacularSwaggerView.as_view(url_name='schema'), name='swagger-ui'),
-    path('api/', include(customers_router.urls)),
-    path('api/', include(mailings_router.urls)),
-    path('api/', include(messages_router.urls)),
-    path('__debug__/', include(debug_toolbar.urls)),
+    path("admin/", admin.site.urls),
+    path("api/schema/", SpectacularAPIView.as_view(), name="schema"),
+    path("api/docs/", SpectacularSwaggerView.as_view(url_name="schema"), name="swagger-ui"),
+    path("api/", include(customers_router.urls)),
+    path("api/", include(mailings_router.urls)),
+    path("api/", include(messages_router.urls)),
+    path("__debug__/", include(debug_toolbar.urls)),
 ]
