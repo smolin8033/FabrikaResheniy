@@ -2,7 +2,7 @@ from rest_framework.serializers import (
     ModelSerializer,
     IntegerField,
     CharField,
-    DateTimeField
+    DateTimeField,
 )
 
 from message.models import Message
@@ -20,10 +20,7 @@ class MailingFilterSerializer(ModelSerializer):
 
     class Meta:
         model = MailingFilter
-        fields = (
-            'operator_code',
-            'tag'
-        )
+        fields = ("operator_code", "tag")
 
 
 class MailingListSerializer(ModelSerializer):
@@ -31,6 +28,7 @@ class MailingListSerializer(ModelSerializer):
     Сериалайзер для просмотра рассылок и количества
     отправленных сообщений с группировкой по статусам
     """
+
     start_datetime = DateTimeField(read_only=True, format="%Y-%m-%d %H:%M:%S")
     message_text = CharField(read_only=True)
     end_datetime = DateTimeField(read_only=True, format="%Y-%m-%d %H:%M:%S")
@@ -41,13 +39,13 @@ class MailingListSerializer(ModelSerializer):
     class Meta:
         model = Mailing
         fields = (
-            'id',
-            'start_datetime',
-            'message_text',
-            'end_datetime',
-            'filter_field',
-            'msg_sent_count',
-            'msg_not_sent_count'
+            "id",
+            "start_datetime",
+            "message_text",
+            "end_datetime",
+            "filter_field",
+            "msg_sent_count",
+            "msg_not_sent_count",
         )
 
 
@@ -55,6 +53,7 @@ class MailingCreateSerializer(ModelSerializer):
     """
     Сериалайзер для создания модели Рассылки
     """
+
     start_datetime = DateTimeField(required=True, format="%Y-%m-%d %H:%M:%S")
     message_text = CharField(required=True)
     end_datetime = DateTimeField(required=True, format="%Y-%m-%d %H:%M:%S")
@@ -63,11 +62,11 @@ class MailingCreateSerializer(ModelSerializer):
     class Meta:
         model = Mailing
         fields = (
-            'id',
-            'start_datetime',
-            'message_text',
-            'end_datetime',
-            'filter_field'
+            "id",
+            "start_datetime",
+            "message_text",
+            "end_datetime",
+            "filter_field",
         )
 
 
@@ -75,6 +74,7 @@ class MailingUpdateSerializer(ModelSerializer):
     """
     Сериалайзер для обновления модели Рассылки
     """
+
     start_datetime = DateTimeField(required=False, format="%Y-%m-%d %H:%M:%S")
     message_text = CharField(required=False)
     end_datetime = DateTimeField(required=False, format="%Y-%m-%d %H:%M:%S")
@@ -83,9 +83,9 @@ class MailingUpdateSerializer(ModelSerializer):
     class Meta:
         model = Mailing
         fields = (
-            'id',
-            'start_datetime',
-            'message_text',
-            'end_datetime',
-            'filter_field'
+            "id",
+            "start_datetime",
+            "message_text",
+            "end_datetime",
+            "filter_field",
         )

@@ -9,32 +9,38 @@ from message.serializers import MessageListSerializer
 from services.check_conditions import check_conditions
 from services.serializer_validation_service import (
     serialize_and_validate_mailing,
-    serialize_and_validate_filter
+    serialize_and_validate_filter,
 )
 
 from .models import Mailing
-from .serializers import MailingCreateSerializer, MailingFilterSerializer, MailingUpdateSerializer, \
-    MailingListSerializer
+from .serializers import (
+    MailingCreateSerializer,
+    MailingFilterSerializer,
+    MailingUpdateSerializer,
+    MailingListSerializer,
+)
 
 
-@extend_schema(tags=['Рассылки'])
+# TODO write docstr in Russian
+@extend_schema(tags=["Рассылки"])
 class MailingViewSet(ModelViewSet):
     """
     Вьюсет для Рассылки
     """
+
     def get_serializer_class(self):
         serializer_class = MailingCreateSerializer
-        if self.action == 'list':
+        if self.action == "list":
             serializer_class = MailingListSerializer
         return serializer_class
 
     def get_queryset(self):
-        queryset = Mailing.objects.select_related('filter_field').all()
+        queryset = Mailing.objects.select_related("filter_field").all()
         if self.action == self.list.__name__:
             queryset = queryset.annotate_msg_count()
         return queryset
 
-    @extend_schema(description='Создание рассылки')
+    @extend_schema(description="Создание рассылки")
     def create(self, request, *args, **kwargs):
         mailing_serializer = serialize_and_validate_mailing(request)
 
@@ -42,7 +48,9 @@ class MailingViewSet(ModelViewSet):
 
         self.perform_create(mailing_serializer, filter_serializer=filter_serializer)
         headers = self.get_success_headers(mailing_serializer.data)
-        return Response(mailing_serializer.data, status=status.HTTP_201_CREATED, headers=headers)
+        return Response(
+            mailing_serializer.data, status=status.HTTP_201_CREATED, headers=headers
+        )
 
     def perform_create(self, mailing_serializer, filter_serializer):
         filter_instance = filter_serializer.save()
@@ -54,13 +62,11 @@ class MailingViewSet(ModelViewSet):
         instance = self.get_object()
 
         mailing_serializer = serialize_and_validate_mailing(request, instance)
-        filter_serializer = serialize_and_validate_filter(request, mailing_serializer, instance)
-
-        self.perform_update(
-            instance,
-            mailing_serializer,
-            filter_serializer
+        filter_serializer = serialize_and_validate_filter(
+            request, mailing_serializer, instance
         )
+
+        self.perform_update(instance, mailing_serializer, filter_serializer)
         return Response(mailing_serializer.data)
 
     def perform_update(self, instance, mailing_serializer, filter_serializer):
@@ -68,7 +74,9 @@ class MailingViewSet(ModelViewSet):
         filter_instance = mailing_instance.filter_field
 
         updated_filter = self.update_mailing_filter(filter_instance, filter_serializer)
-        updated_mailing = self.update_mailing_instance(mailing_instance, mailing_serializer, updated_filter)
+        updated_mailing = self.update_mailing_instance(
+            mailing_instance, mailing_serializer, updated_filter
+        )
 
         check_conditions(updated_mailing)
 
@@ -80,6 +88,8 @@ class MailingViewSet(ModelViewSet):
 
     @staticmethod
     def update_mailing_instance(instance, mailing_serializer, updated_filter):
-        instance.__dict__.update(**mailing_serializer.validated_data, filter_field=updated_filter)
+        instance.__dict__.update(
+            **mailing_serializer.validated_data, filter_field=updated_filter
+        )
         instance.save()
         return instance

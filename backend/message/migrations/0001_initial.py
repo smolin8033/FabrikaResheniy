@@ -9,19 +9,46 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ('customer', '0001_initial'),
-        ('mailing', '0001_initial'),
+        ("customer", "0001_initial"),
+        ("mailing", "0001_initial"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Message',
+            name="Message",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('created_at', models.DateTimeField(auto_now_add=True, verbose_name='Время создания')),
-                ('status', models.BooleanField(default=False, verbose_name='Статус')),
-                ('customer', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='customer.customer', verbose_name='Отправлено клиенту:')),
-                ('mailing', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='mailing.mailing', verbose_name='Отправлено в рамках рассылки:')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "created_at",
+                    models.DateTimeField(
+                        auto_now_add=True, verbose_name="Время создания"
+                    ),
+                ),
+                ("status", models.BooleanField(default=False, verbose_name="Статус")),
+                (
+                    "customer",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="customer.customer",
+                        verbose_name="Отправлено клиенту:",
+                    ),
+                ),
+                (
+                    "mailing",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="mailing.mailing",
+                        verbose_name="Отправлено в рамках рассылки:",
+                    ),
+                ),
             ],
         ),
     ]

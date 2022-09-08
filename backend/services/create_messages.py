@@ -10,11 +10,11 @@ def create_messages(mailing, customers):
     """
     messages = []
     for customer in customers:
-        messages.append(Message(
-            created_at=datetime.datetime.now(),
-            mailing=mailing,
-            customer=customer
-        ))
+        messages.append(
+            Message(
+                created_at=datetime.datetime.now(), mailing=mailing, customer=customer
+            )
+        )
 
     messages = Message.objects.bulk_create(messages)
     messages_ids = [message.id for message in messages]

@@ -8,26 +8,59 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='MailingFilter',
+            name="MailingFilter",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('operator_code', models.IntegerField(verbose_name='Код оператора')),
-                ('tag', models.CharField(blank=True, max_length=50, verbose_name='Тег')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("operator_code", models.IntegerField(verbose_name="Код оператора")),
+                (
+                    "tag",
+                    models.CharField(blank=True, max_length=50, verbose_name="Тег"),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='Mailing',
+            name="Mailing",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('start_datetime', models.DateTimeField(verbose_name='Время старта рассылки')),
-                ('message_text', models.TextField(verbose_name='Текст сообщения')),
-                ('end_datetime', models.DateTimeField(verbose_name='Время окончания рассылки')),
-                ('filter_field', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, to='mailing.mailingfilter', verbose_name='Фильтрация')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "start_datetime",
+                    models.DateTimeField(verbose_name="Время старта рассылки"),
+                ),
+                ("message_text", models.TextField(verbose_name="Текст сообщения")),
+                (
+                    "end_datetime",
+                    models.DateTimeField(verbose_name="Время окончания рассылки"),
+                ),
+                (
+                    "filter_field",
+                    models.ForeignKey(
+                        blank=True,
+                        null=True,
+                        on_delete=django.db.models.deletion.SET_NULL,
+                        to="mailing.mailingfilter",
+                        verbose_name="Фильтрация",
+                    ),
+                ),
             ],
         ),
     ]
