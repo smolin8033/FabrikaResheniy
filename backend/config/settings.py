@@ -15,9 +15,10 @@ ALLOWED_HOSTS = []
 # github actions/ why do i need this?
 # pre-commit install
 # error: cannot format backend/mailing/migrations/0003_alter_mailing_managers.py: [Errno 13] Permission denied: 'backend/mailing/migrations/0003_alter_mailing_managers.py'
+# UnicodeDecodeError: 'utf-16-le' codec can't decode byte 0x0a in position 1180: truncated data
+# executor failed running [/bin/sh -c pip install -r requirements.txt]: exit code: 2
 
 
-# TODO pre-commit
 # TODO env
 # TODO testing big data factory boy
 # TODO do testing
