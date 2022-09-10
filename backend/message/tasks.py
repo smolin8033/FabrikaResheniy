@@ -1,12 +1,8 @@
-import json
 import datetime
 
-import requests
 
 from celery import shared_task
 from celery.utils.log import get_task_logger
-from django.db import transaction
-from django.shortcuts import get_object_or_404
 
 from message.models import Message
 from message.services.send_messages_service import send_message
@@ -31,8 +27,13 @@ def send_messages(messages_ids):
 
 
 @shared_task
-def send_not_sent_message(message_id):
-    messages = Message.objects.filter(
-        status=False, mailing__end_datetime__lte=datetime.datetime.now()
-    )
-    print(messages)
+def send_not_sent_message():
+    """
+    Отправка неотправленных сообщений
+    """
+    messages_ids = Message.objects.filter(
+        status=False, mailing__end_datetime__gte=datetime.datetime.now()
+    ).values_list("id", flat=True)
+
+    for msg_id in messages_ids:
+        send_message(msg_id)

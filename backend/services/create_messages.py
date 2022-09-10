@@ -1,7 +1,7 @@
 import datetime
 
 from message.models import Message
-from message.tasks import send_messages
+from message.tasks import send_messages, send_not_sent_message
 
 
 def create_messages(mailing, customers):

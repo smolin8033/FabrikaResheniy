@@ -1,6 +1,7 @@
 import os
 
 from celery import Celery
+from celery.schedules import crontab
 from celery.utils.log import get_task_logger
 
 logger = get_task_logger(__name__)
@@ -20,14 +21,13 @@ app.config_from_object("django.conf:settings", namespace="CELERY")
 app.autodiscover_tasks()
 
 
-# TODO обработка ошибок с селери
 app.conf.beat_schedule = {
     "add-every-30-seconds": {
-        "task": "send_not_sent_message",
-        "schedule": 30.0,
-        "args": (16, 16),
+        "task": "message.tasks.send_not_sent_message",
+        "schedule": crontab("*/2"),
     },
 }
+
 
 app.conf.timezone = "Europe/Moscow"
 
