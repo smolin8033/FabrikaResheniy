@@ -28,6 +28,10 @@ app.conf.beat_schedule = {
     },
 }
 
+app.conf.task_routes = {
+    "message.tasks.send_not_sent_message": {"queue": "queue_for_single_worker"}
+}
+
 
 app.conf.timezone = "Europe/Moscow"
 
