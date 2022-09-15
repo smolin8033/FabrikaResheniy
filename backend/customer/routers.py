@@ -4,5 +4,3 @@ from .viewsets import CustomerViewSet
 
 router = DefaultRouter()
 router.register("customers", CustomerViewSet, basename="customers")
-
-print(router.urls)
