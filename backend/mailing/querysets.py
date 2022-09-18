@@ -1,4 +1,4 @@
-from django.db.models import QuerySet, Count, Q
+from django.db.models import Count, Q, QuerySet
 
 
 class MailingQuerySet(QuerySet):

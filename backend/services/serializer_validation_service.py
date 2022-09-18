@@ -1,7 +1,7 @@
 from mailing.serializers import (
+    MailingCreateSerializer,
     MailingFilterSerializer,
     MailingUpdateSerializer,
-    MailingCreateSerializer,
 )
 
 

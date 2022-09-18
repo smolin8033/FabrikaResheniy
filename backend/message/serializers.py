@@ -1,8 +1,8 @@
 from rest_framework.serializers import (
-    ModelSerializer,
-    DateTimeField,
     BooleanField,
     CharField,
+    DateTimeField,
+    ModelSerializer,
     ReadOnlyField,
 )
 

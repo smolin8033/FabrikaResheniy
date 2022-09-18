@@ -9,6 +9,7 @@ from mailing.models import Mailing
 from message.models import Message
 from message.serializers import MessageListSerializer
 
+
 # TODO write docstrings in Russian
 @extend_schema(tags=["Сообщения"])
 class MessageViewSet(ReadOnlyModelViewSet):

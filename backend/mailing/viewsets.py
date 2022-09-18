@@ -1,5 +1,4 @@
 from drf_spectacular.utils import extend_schema
-
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet
@@ -8,16 +7,16 @@ from message.models import Message
 from message.serializers import MessageListSerializer
 from services.check_conditions import check_conditions
 from services.serializer_validation_service import (
-    serialize_and_validate_mailing,
     serialize_and_validate_filter,
+    serialize_and_validate_mailing,
 )
 
 from .models import Mailing
 from .serializers import (
     MailingCreateSerializer,
     MailingFilterSerializer,
-    MailingUpdateSerializer,
     MailingListSerializer,
+    MailingUpdateSerializer,
 )
 
 

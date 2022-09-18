@@ -1,6 +1,5 @@
 from pathlib import Path
 
-
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
@@ -45,9 +44,6 @@ Check https://stackoverflow.com/questions/17843630/python-can-dumpdata-cannot-lo
 -- получения общей статистики по созданным рассылкам и количеству отправленных сообщений по ним с группировкой по статусам
 -- (проверять, работает ли селери, фикстура mock) HARD
 -- получения детальной статистики отправленных сообщений по конкретной рассылке HARD
-
--- создавать тестовые данные - фикстуры без изменения файлов (создавать тест пользователя python manage.py dumpdata исключить content permissions)
-fixtures folder файл jsona сохранится
 
 -- isort or analogs
 -- nginx gunicorn

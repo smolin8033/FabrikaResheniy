@@ -1,11 +1,12 @@
 from rest_framework.serializers import (
-    ModelSerializer,
-    IntegerField,
     CharField,
     DateTimeField,
+    IntegerField,
+    ModelSerializer,
 )
 
 from message.models import Message
+
 from .models import Mailing, MailingFilter
 
 
