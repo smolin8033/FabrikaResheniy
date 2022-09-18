@@ -17,6 +17,8 @@ services:
       - POSTGRES_USER=admin_notifications
       - POSTGRES_PASSWORD=admin
       - POSTGRES_DB=notifications
+    ports:
+      - '5432:5432'
 
   redis:
     image: redis:alpine

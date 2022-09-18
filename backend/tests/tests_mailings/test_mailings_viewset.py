@@ -2,7 +2,7 @@ import pytest
 from django.urls import reverse
 from rest_framework import status
 
-from mailing.models import Mailing
+from mailing.models import Mailing, MailingFilter
 from tests.tests_mailings.factories.mailing_factory import MailingFactory
 
 
@@ -30,8 +30,10 @@ class TestMailingFilterViewSet:
         url = reverse("mailings-detail", kwargs={"pk": mailing.pk})
 
         assert Mailing.objects.count() == 1
+        assert MailingFilter.objects.count() == 1
 
         response = api_client.delete(url)
 
         assert response.status_code == status.HTTP_204_NO_CONTENT
         assert Mailing.objects.count() == 0
+        assert MailingFilter.objects.count() == 0

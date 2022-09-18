@@ -1,0 +1,1635 @@
+[
+{
+    "model": "auth.user",
+    "fields": {
+        "password": "pbkdf2_sha256$390000$MZIINqlvB690GlGFdAiU7s$Jd3XkgJs0WZaU/LY0/9Ep0mvQnR1xbWqQBps+Zb2gGg=",
+        "last_login": "2022-09-15T12:02:19.735Z",
+        "is_superuser": true,
+        "username": "admin",
+        "first_name": "",
+        "last_name": "",
+        "email": "",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2022-08-29T12:11:42.036Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "0oye0efrvnbx30zz29h9izfu955xcn45",
+    "fields": {
+        "session_data": ".eJxVjMsOgjAQRf-la9MU2jJTl-79BjKPIqgpCYWV8d-VhIVu7znnvkxP2zr2W81LP6k5m8acfjcmeeSyA71Tuc1W5rIuE9tdsQet9jprfl4O9-9gpDp-a27YU6sEQ4eRNA0iDigIsAfR1vmcXDNgDEEREBmhY8AUoxeRxNG8P_unOBk:1oVADx:vgXGX6SVZRFUUWZ-sveAJ7tHuFX6xV-JwbXxGZh8_1Y",
+        "expire_date": "2022-09-19T11:25:05.054Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "4y4vmg6waob0zjzc9t3ocx45igixpt1m",
+    "fields": {
+        "session_data": ".eJxVjMsOgjAQRf-la9MU2jJTl-79BjKPIqgpCYWV8d-VhIVu7znnvkxP2zr2W81LP6k5m8acfjcmeeSyA71Tuc1W5rIuE9tdsQet9jprfl4O9-9gpDp-a27YU6sEQ4eRNA0iDigIsAfR1vmcXDNgDEEREBmhY8AUoxeRxNG8P_unOBk:1oSyW4:XzmftIY5FicE_xjoQcd_Z06T_GkJ19Q8-qidQQmdHdo",
+        "expire_date": "2022-09-13T10:30:44.269Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "mqz8yg13vnvhtyt2m9djjyvqatbe8x01",
+    "fields": {
+        "session_data": ".eJxVjMsOgjAQRf-la9MU2jJTl-79BjKPIqgpCYWV8d-VhIVu7znnvkxP2zr2W81LP6k5m8acfjcmeeSyA71Tuc1W5rIuE9tdsQet9jprfl4O9-9gpDp-a27YU6sEQ4eRNA0iDigIsAfR1vmcXDNgDEEREBmhY8AUoxeRxNG8P_unOBk:1oSdcL:jUypRkZOYEBEEmj19BR7QkFTYhbXEl3vYSNlrNVaasg",
+        "expire_date": "2022-09-12T12:11:49.908Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "p1c1wjuqcc5mza6ell6mliffne2hngv5",
+    "fields": {
+        "session_data": ".eJxVjMsOgjAQRf-la9MU2jJTl-79BjKPIqgpCYWV8d-VhIVu7znnvkxP2zr2W81LP6k5m8acfjcmeeSyA71Tuc1W5rIuE9tdsQet9jprfl4O9-9gpDp-a27YU6sEQ4eRNA0iDigIsAfR1vmcXDNgDEEREBmhY8AUoxeRxNG8P_unOBk:1oWI2F:qCShLr2UIacsAHbPNSOlLsu2lHT95660C_kL7Q5IOIs",
+        "expire_date": "2022-09-22T13:57:39.328Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "vqvmqmorfvq419u5qmbfke9mr23rsoj9",
+    "fields": {
+        "session_data": ".eJxVjMsOgjAQRf-la9MU2jJTl-79BjKPIqgpCYWV8d-VhIVu7znnvkxP2zr2W81LP6k5m8acfjcmeeSyA71Tuc1W5rIuE9tdsQet9jprfl4O9-9gpDp-a27YU6sEQ4eRNA0iDigIsAfR1vmcXDNgDEEREBmhY8AUoxeRxNG8P_unOBk:1oYnZT:OCBtd_qJl6jmZgLdv2GnwRwiE2DazDCeGslD1-5QJAg",
+        "expire_date": "2022-09-29T12:02:19.780Z"
+    }
+},
+{
+    "model": "mailing.mailingfilter",
+    "pk": 32,
+    "fields": {
+        "operator_code": 916,
+        "tag": "1tag"
+    }
+},
+{
+    "model": "mailing.mailingfilter",
+    "pk": 33,
+    "fields": {
+        "operator_code": 916,
+        "tag": "1tag"
+    }
+},
+{
+    "model": "mailing.mailingfilter",
+    "pk": 34,
+    "fields": {
+        "operator_code": 916,
+        "tag": "1tag"
+    }
+},
+{
+    "model": "mailing.mailingfilter",
+    "pk": 35,
+    "fields": {
+        "operator_code": 916,
+        "tag": "1tag"
+    }
+},
+{
+    "model": "mailing.mailingfilter",
+    "pk": 36,
+    "fields": {
+        "operator_code": 916,
+        "tag": "1tag"
+    }
+},
+{
+    "model": "mailing.mailingfilter",
+    "pk": 37,
+    "fields": {
+        "operator_code": 916,
+        "tag": "1tag"
+    }
+},
+{
+    "model": "mailing.mailingfilter",
+    "pk": 38,
+    "fields": {
+        "operator_code": 916,
+        "tag": "1tag"
+    }
+},
+{
+    "model": "mailing.mailingfilter",
+    "pk": 39,
+    "fields": {
+        "operator_code": 916,
+        "tag": "1tag"
+    }
+},
+{
+    "model": "mailing.mailingfilter",
+    "pk": 40,
+    "fields": {
+        "operator_code": 916,
+        "tag": "1tag"
+    }
+},
+{
+    "model": "mailing.mailing",
+    "pk": 36,
+    "fields": {
+        "start_datetime": "2022-09-12T11:20:26Z",
+        "message_text": "555555555555555555555555",
+        "filter_field": 36,
+        "end_datetime": "2022-09-12T19:20:28Z"
+    }
+},
+{
+    "model": "mailing.mailing",
+    "pk": 38,
+    "fields": {
+        "start_datetime": "2022-09-10T16:09:56.157Z",
+        "message_text": "11111111111111",
+        "filter_field": 38,
+        "end_datetime": "2022-09-10T20:09:56.157Z"
+    }
+},
+{
+    "model": "mailing.mailing",
+    "pk": 39,
+    "fields": {
+        "start_datetime": "2022-09-10T16:09:56.157Z",
+        "message_text": "000000000000000000",
+        "filter_field": 39,
+        "end_datetime": "2022-09-10T20:09:56.157Z"
+    }
+},
+{
+    "model": "mailing.mailing",
+    "pk": 40,
+    "fields": {
+        "start_datetime": "2022-09-10T16:09:56.157Z",
+        "message_text": "000000000000000000",
+        "filter_field": 40,
+        "end_datetime": "2022-09-10T20:09:56.157Z"
+    }
+},
+{
+    "model": "customer.customer",
+    "pk": 1,
+    "fields": {
+        "phone_number": "79165753429",
+        "operator_code": 916,
+        "tag": "1tag",
+        "timezone": "UTC"
+    }
+},
+{
+    "model": "customer.customer",
+    "pk": 2,
+    "fields": {
+        "phone_number": "79165752934",
+        "operator_code": 916,
+        "tag": "1tag",
+        "timezone": "UTC"
+    }
+},
+{
+    "model": "message.message",
+    "pk": 63,
+    "fields": {
+        "created_at": "2022-09-10T16:39:28.194Z",
+        "status": true,
+        "mailing": 36,
+        "customer": 1
+    }
+},
+{
+    "model": "message.message",
+    "pk": 64,
+    "fields": {
+        "created_at": "2022-09-10T16:39:28.194Z",
+        "status": true,
+        "mailing": 36,
+        "customer": 2
+    }
+},
+{
+    "model": "message.message",
+    "pk": 71,
+    "fields": {
+        "created_at": "2022-09-10T16:57:04.946Z",
+        "status": false,
+        "mailing": 40,
+        "customer": 1
+    }
+},
+{
+    "model": "message.message",
+    "pk": 72,
+    "fields": {
+        "created_at": "2022-09-10T16:57:04.946Z",
+        "status": false,
+        "mailing": 40,
+        "customer": 2
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 1,
+    "fields": {
+        "action_time": "2022-08-29T12:12:25.897Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "customer",
+            "customer"
+        ],
+        "object_id": "1",
+        "object_repr": "79165753429",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 2,
+    "fields": {
+        "action_time": "2022-08-29T12:12:47.577Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "customer",
+            "customer"
+        ],
+        "object_id": "2",
+        "object_repr": "79165752934",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 3,
+    "fields": {
+        "action_time": "2022-08-30T10:31:00.185Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "mailing",
+            "mailing"
+        ],
+        "object_id": "4",
+        "object_repr": "33333string33333string333333string",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 4,
+    "fields": {
+        "action_time": "2022-08-30T10:31:00.193Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "mailing",
+            "mailing"
+        ],
+        "object_id": "3",
+        "object_repr": "22222string22222string22222string",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 5,
+    "fields": {
+        "action_time": "2022-08-30T10:31:00.195Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "mailing",
+            "mailing"
+        ],
+        "object_id": "2",
+        "object_repr": "stringstringstringstringstringstringstring",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 6,
+    "fields": {
+        "action_time": "2022-08-30T10:31:05.481Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "mailing",
+            "mailingfilter"
+        ],
+        "object_id": "4",
+        "object_repr": "╨Ъ╨╛╨┤: 916, ╤В╨╡╨│: 1tag",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 7,
+    "fields": {
+        "action_time": "2022-08-30T10:31:05.484Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "mailing",
+            "mailingfilter"
+        ],
+        "object_id": "3",
+        "object_repr": "╨Ъ╨╛╨┤: 916, ╤В╨╡╨│: 1tag",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 8,
+    "fields": {
+        "action_time": "2022-08-30T10:31:05.486Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "mailing",
+            "mailingfilter"
+        ],
+        "object_id": "2",
+        "object_repr": "╨Ъ╨╛╨┤: 916, ╤В╨╡╨│: 3tag",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 9,
+    "fields": {
+        "action_time": "2022-08-30T13:25:19.949Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "mailing",
+            "mailing"
+        ],
+        "object_id": "19",
+        "object_repr": "55.555555555555",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 10,
+    "fields": {
+        "action_time": "2022-08-30T13:25:19.971Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "mailing",
+            "mailing"
+        ],
+        "object_id": "18",
+        "object_repr": "44.444444444444",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 11,
+    "fields": {
+        "action_time": "2022-08-30T13:25:19.974Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "mailing",
+            "mailing"
+        ],
+        "object_id": "17",
+        "object_repr": "33.33333333333333",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 12,
+    "fields": {
+        "action_time": "2022-08-30T13:25:19.976Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "mailing",
+            "mailing"
+        ],
+        "object_id": "16",
+        "object_repr": "22.22222222222222",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 13,
+    "fields": {
+        "action_time": "2022-08-30T13:25:19.979Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "mailing",
+            "mailing"
+        ],
+        "object_id": "15",
+        "object_repr": "11.11111111111111111",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 14,
+    "fields": {
+        "action_time": "2022-08-30T13:25:19.981Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "mailing",
+            "mailing"
+        ],
+        "object_id": "14",
+        "object_repr": "10101010101010",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 15,
+    "fields": {
+        "action_time": "2022-08-30T13:25:19.984Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "mailing",
+            "mailing"
+        ],
+        "object_id": "13",
+        "object_repr": "9999999999999999",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 16,
+    "fields": {
+        "action_time": "2022-08-30T13:25:19.986Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "mailing",
+            "mailing"
+        ],
+        "object_id": "12",
+        "object_repr": "888888888888888888",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 17,
+    "fields": {
+        "action_time": "2022-08-30T13:25:19.988Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "mailing",
+            "mailing"
+        ],
+        "object_id": "11",
+        "object_repr": "777777777777777777",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 18,
+    "fields": {
+        "action_time": "2022-08-30T13:25:19.990Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "mailing",
+            "mailing"
+        ],
+        "object_id": "10",
+        "object_repr": "666666666666666666666",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 19,
+    "fields": {
+        "action_time": "2022-08-30T13:25:19.993Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "mailing",
+            "mailing"
+        ],
+        "object_id": "9",
+        "object_repr": "55555555555555555555",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 20,
+    "fields": {
+        "action_time": "2022-08-30T13:25:19.995Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "mailing",
+            "mailing"
+        ],
+        "object_id": "8",
+        "object_repr": "444444444444444444444444444444",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 21,
+    "fields": {
+        "action_time": "2022-08-30T13:25:19.997Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "mailing",
+            "mailing"
+        ],
+        "object_id": "7",
+        "object_repr": "333333333333333333333333333333",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 22,
+    "fields": {
+        "action_time": "2022-08-30T13:25:20.000Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "mailing",
+            "mailing"
+        ],
+        "object_id": "6",
+        "object_repr": "second_stringsecond_string",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 23,
+    "fields": {
+        "action_time": "2022-08-30T13:25:20.001Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "mailing",
+            "mailing"
+        ],
+        "object_id": "5",
+        "object_repr": "first_stringfirst_string",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 24,
+    "fields": {
+        "action_time": "2022-08-30T13:25:25.151Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "mailing",
+            "mailingfilter"
+        ],
+        "object_id": "19",
+        "object_repr": "╨Ъ╨╛╨┤: 916, ╤В╨╡╨│: 1tag",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 25,
+    "fields": {
+        "action_time": "2022-08-30T13:25:25.154Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "mailing",
+            "mailingfilter"
+        ],
+        "object_id": "18",
+        "object_repr": "╨Ъ╨╛╨┤: 916, ╤В╨╡╨│: 1tag",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 26,
+    "fields": {
+        "action_time": "2022-08-30T13:25:25.157Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "mailing",
+            "mailingfilter"
+        ],
+        "object_id": "17",
+        "object_repr": "╨Ъ╨╛╨┤: 916, ╤В╨╡╨│: 1tag",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 27,
+    "fields": {
+        "action_time": "2022-08-30T13:25:25.159Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "mailing",
+            "mailingfilter"
+        ],
+        "object_id": "16",
+        "object_repr": "╨Ъ╨╛╨┤: 916, ╤В╨╡╨│: 1tag",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 28,
+    "fields": {
+        "action_time": "2022-08-30T13:25:25.162Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "mailing",
+            "mailingfilter"
+        ],
+        "object_id": "15",
+        "object_repr": "╨Ъ╨╛╨┤: 916, ╤В╨╡╨│: 1tag",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 29,
+    "fields": {
+        "action_time": "2022-08-30T13:25:25.165Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "mailing",
+            "mailingfilter"
+        ],
+        "object_id": "14",
+        "object_repr": "╨Ъ╨╛╨┤: 916, ╤В╨╡╨│: 1tag",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 30,
+    "fields": {
+        "action_time": "2022-08-30T13:25:25.168Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "mailing",
+            "mailingfilter"
+        ],
+        "object_id": "13",
+        "object_repr": "╨Ъ╨╛╨┤: 916, ╤В╨╡╨│: 1tag",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 31,
+    "fields": {
+        "action_time": "2022-08-30T13:25:25.170Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "mailing",
+            "mailingfilter"
+        ],
+        "object_id": "12",
+        "object_repr": "╨Ъ╨╛╨┤: 916, ╤В╨╡╨│: 1tag",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 32,
+    "fields": {
+        "action_time": "2022-08-30T13:25:25.172Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "mailing",
+            "mailingfilter"
+        ],
+        "object_id": "11",
+        "object_repr": "╨Ъ╨╛╨┤: 916, ╤В╨╡╨│: 1tag",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 33,
+    "fields": {
+        "action_time": "2022-08-30T13:25:25.175Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "mailing",
+            "mailingfilter"
+        ],
+        "object_id": "10",
+        "object_repr": "╨Ъ╨╛╨┤: 916, ╤В╨╡╨│: 1tag",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 34,
+    "fields": {
+        "action_time": "2022-08-30T13:25:25.179Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "mailing",
+            "mailingfilter"
+        ],
+        "object_id": "9",
+        "object_repr": "╨Ъ╨╛╨┤: 916, ╤В╨╡╨│: 1tag",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 35,
+    "fields": {
+        "action_time": "2022-08-30T13:25:25.182Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "mailing",
+            "mailingfilter"
+        ],
+        "object_id": "8",
+        "object_repr": "╨Ъ╨╛╨┤: 916, ╤В╨╡╨│: 1tag",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 36,
+    "fields": {
+        "action_time": "2022-08-30T13:25:25.184Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "mailing",
+            "mailingfilter"
+        ],
+        "object_id": "7",
+        "object_repr": "╨Ъ╨╛╨┤: 916, ╤В╨╡╨│: 1tag",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 37,
+    "fields": {
+        "action_time": "2022-08-30T13:25:25.186Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "mailing",
+            "mailingfilter"
+        ],
+        "object_id": "6",
+        "object_repr": "╨Ъ╨╛╨┤: 916, ╤В╨╡╨│: 1tag",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 38,
+    "fields": {
+        "action_time": "2022-08-30T13:25:25.188Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "mailing",
+            "mailingfilter"
+        ],
+        "object_id": "5",
+        "object_repr": "╨Ъ╨╛╨┤: 916, ╤В╨╡╨│: 1tag",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 39,
+    "fields": {
+        "action_time": "2022-08-30T13:59:04.784Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "mailing",
+            "mailing"
+        ],
+        "object_id": "20",
+        "object_repr": "11111111111111111111",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 40,
+    "fields": {
+        "action_time": "2022-08-30T13:59:08.253Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "mailing",
+            "mailingfilter"
+        ],
+        "object_id": "20",
+        "object_repr": "╨Ъ╨╛╨┤: 916, ╤В╨╡╨│: 1tag",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 41,
+    "fields": {
+        "action_time": "2022-08-30T15:05:44.802Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "mailing",
+            "mailing"
+        ],
+        "object_id": "22",
+        "object_repr": "11111111111111111111",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 42,
+    "fields": {
+        "action_time": "2022-08-30T15:05:49.511Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "mailing",
+            "mailingfilter"
+        ],
+        "object_id": "22",
+        "object_repr": "╨Ъ╨╛╨┤: 916, ╤В╨╡╨│: 1tag",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 43,
+    "fields": {
+        "action_time": "2022-08-30T15:14:29.394Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "mailing",
+            "mailing"
+        ],
+        "object_id": "23",
+        "object_repr": "11111111111111111111",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 44,
+    "fields": {
+        "action_time": "2022-08-30T15:14:35.773Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "mailing",
+            "mailingfilter"
+        ],
+        "object_id": "23",
+        "object_repr": "╨Ъ╨╛╨┤: 916, ╤В╨╡╨│: 1tag",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 45,
+    "fields": {
+        "action_time": "2022-09-05T11:25:13.576Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "mailing",
+            "mailing"
+        ],
+        "object_id": "25",
+        "object_repr": "222222222222222222",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 46,
+    "fields": {
+        "action_time": "2022-09-05T11:25:13.585Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "mailing",
+            "mailing"
+        ],
+        "object_id": "24",
+        "object_repr": "11111111111111111111",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 47,
+    "fields": {
+        "action_time": "2022-09-05T11:25:18.272Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "mailing",
+            "mailingfilter"
+        ],
+        "object_id": "25",
+        "object_repr": "╨Ъ╨╛╨┤: 916, ╤В╨╡╨│: 1tag",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 48,
+    "fields": {
+        "action_time": "2022-09-05T11:25:18.275Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "mailing",
+            "mailingfilter"
+        ],
+        "object_id": "24",
+        "object_repr": "╨Ъ╨╛╨┤: 916, ╤В╨╡╨│: 1tag",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 49,
+    "fields": {
+        "action_time": "2022-09-05T11:30:57.490Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "mailing",
+            "mailing"
+        ],
+        "object_id": "26",
+        "object_repr": "first_message/first_message/first_message/first_me",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 50,
+    "fields": {
+        "action_time": "2022-09-05T11:31:02.759Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "mailing",
+            "mailingfilter"
+        ],
+        "object_id": "26",
+        "object_repr": "╨Ъ╨╛╨┤: 916, ╤В╨╡╨│: 1tag",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 51,
+    "fields": {
+        "action_time": "2022-09-08T13:58:49.666Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "mailing",
+            "mailing"
+        ],
+        "object_id": "27",
+        "object_repr": "first_message/first_message/first_message/first_me",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 52,
+    "fields": {
+        "action_time": "2022-09-08T13:58:53.387Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "mailing",
+            "mailingfilter"
+        ],
+        "object_id": "27",
+        "object_repr": "╨Ъ╨╛╨┤: 916, ╤В╨╡╨│: 1tag",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 53,
+    "fields": {
+        "action_time": "2022-09-08T14:03:29.798Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "mailing",
+            "mailing"
+        ],
+        "object_id": "28",
+        "object_repr": "string",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 54,
+    "fields": {
+        "action_time": "2022-09-08T14:03:34.312Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "mailing",
+            "mailingfilter"
+        ],
+        "object_id": "28",
+        "object_repr": "╨Ъ╨╛╨┤: 916, ╤В╨╡╨│: 1message1message1message1message1message1message",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 55,
+    "fields": {
+        "action_time": "2022-09-10T16:11:57.834Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "mailing",
+            "mailing"
+        ],
+        "object_id": "31",
+        "object_repr": "2message2message2message2message",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 56,
+    "fields": {
+        "action_time": "2022-09-10T16:11:57.838Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "mailing",
+            "mailing"
+        ],
+        "object_id": "30",
+        "object_repr": "string",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 57,
+    "fields": {
+        "action_time": "2022-09-10T16:11:57.841Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "mailing",
+            "mailing"
+        ],
+        "object_id": "29",
+        "object_repr": "1message1message1message1message1message",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 58,
+    "fields": {
+        "action_time": "2022-09-10T16:12:03.168Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "mailing",
+            "mailingfilter"
+        ],
+        "object_id": "31",
+        "object_repr": "╨Ъ╨╛╨┤: 916, ╤В╨╡╨│: 1tag",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 59,
+    "fields": {
+        "action_time": "2022-09-10T16:12:03.171Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "mailing",
+            "mailingfilter"
+        ],
+        "object_id": "30",
+        "object_repr": "╨Ъ╨╛╨┤: 916, ╤В╨╡╨│: 1tag",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 60,
+    "fields": {
+        "action_time": "2022-09-10T16:12:03.174Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "mailing",
+            "mailingfilter"
+        ],
+        "object_id": "29",
+        "object_repr": "╨Ъ╨╛╨┤: 916, ╤В╨╡╨│: 1tag",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 61,
+    "fields": {
+        "action_time": "2022-09-10T16:45:41.324Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "mailing",
+            "mailing"
+        ],
+        "object_id": "35",
+        "object_repr": "4444444444444444444444444444",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 62,
+    "fields": {
+        "action_time": "2022-09-10T16:45:41.328Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "mailing",
+            "mailing"
+        ],
+        "object_id": "34",
+        "object_repr": "33333333333333333333333333333333333",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 63,
+    "fields": {
+        "action_time": "2022-09-10T16:45:41.331Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "mailing",
+            "mailing"
+        ],
+        "object_id": "33",
+        "object_repr": "2_message+2_message+2_message+2_message+",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 64,
+    "fields": {
+        "action_time": "2022-09-10T16:45:41.334Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "mailing",
+            "mailing"
+        ],
+        "object_id": "32",
+        "object_repr": "1_message1_message1_message1_message",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 65,
+    "fields": {
+        "action_time": "2022-09-10T16:49:45.383Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "mailing",
+            "mailing"
+        ],
+        "object_id": "37",
+        "object_repr": "11111111111111",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 66,
+    "fields": {
+        "action_time": "2022-09-10T16:56:26.260Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "message",
+            "message"
+        ],
+        "object_id": "70",
+        "object_repr": "000000000000000000",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 67,
+    "fields": {
+        "action_time": "2022-09-10T16:56:26.264Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "message",
+            "message"
+        ],
+        "object_id": "69",
+        "object_repr": "000000000000000000",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 68,
+    "fields": {
+        "action_time": "2022-09-10T16:56:26.267Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "message",
+            "message"
+        ],
+        "object_id": "68",
+        "object_repr": "11111111111111",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 69,
+    "fields": {
+        "action_time": "2022-09-10T16:56:26.272Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "message",
+            "message"
+        ],
+        "object_id": "67",
+        "object_repr": "11111111111111",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 70,
+    "fields": {
+        "action_time": "2022-09-10T17:14:27.826Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "message",
+            "message"
+        ],
+        "object_id": "63",
+        "object_repr": "555555555555555555555555",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u0421\\u0442\\u0430\\u0442\\u0443\\u0441\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 71,
+    "fields": {
+        "action_time": "2022-09-10T17:14:33.007Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "message",
+            "message"
+        ],
+        "object_id": "64",
+        "object_repr": "555555555555555555555555",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u0421\\u0442\\u0430\\u0442\\u0443\\u0441\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 72,
+    "fields": {
+        "action_time": "2022-09-10T17:14:36.582Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "message",
+            "message"
+        ],
+        "object_id": "71",
+        "object_repr": "000000000000000000",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u0421\\u0442\\u0430\\u0442\\u0443\\u0441\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 73,
+    "fields": {
+        "action_time": "2022-09-10T17:14:41.469Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "message",
+            "message"
+        ],
+        "object_id": "72",
+        "object_repr": "000000000000000000",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u0421\\u0442\\u0430\\u0442\\u0443\\u0441\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 74,
+    "fields": {
+        "action_time": "2022-09-12T11:14:11.985Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "message",
+            "message"
+        ],
+        "object_id": "72",
+        "object_repr": "000000000000000000",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u0421\\u0442\\u0430\\u0442\\u0443\\u0441\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 75,
+    "fields": {
+        "action_time": "2022-09-12T11:14:15.516Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "message",
+            "message"
+        ],
+        "object_id": "71",
+        "object_repr": "000000000000000000",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u0421\\u0442\\u0430\\u0442\\u0443\\u0441\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 76,
+    "fields": {
+        "action_time": "2022-09-12T11:14:18.491Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "message",
+            "message"
+        ],
+        "object_id": "64",
+        "object_repr": "555555555555555555555555",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u0421\\u0442\\u0430\\u0442\\u0443\\u0441\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 77,
+    "fields": {
+        "action_time": "2022-09-12T11:14:21.982Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "message",
+            "message"
+        ],
+        "object_id": "63",
+        "object_repr": "555555555555555555555555",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u0421\\u0442\\u0430\\u0442\\u0443\\u0441\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 78,
+    "fields": {
+        "action_time": "2022-09-12T11:20:34.661Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "mailing",
+            "mailing"
+        ],
+        "object_id": "36",
+        "object_repr": "555555555555555555555555",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u0412\\u0440\\u0435\\u043c\\u044f \\u0441\\u0442\\u0430\\u0440\\u0442\\u0430 \\u0440\\u0430\\u0441\\u0441\\u044b\\u043b\\u043a\\u0438\", \"\\u0412\\u0440\\u0435\\u043c\\u044f \\u043e\\u043a\\u043e\\u043d\\u0447\\u0430\\u043d\\u0438\\u044f \\u0440\\u0430\\u0441\\u0441\\u044b\\u043b\\u043a\\u0438\"]}}]"
+    }
+}
+]
