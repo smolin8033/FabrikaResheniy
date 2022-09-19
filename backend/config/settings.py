@@ -1,14 +1,14 @@
+import os
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-SECRET_KEY = "django-insecure-=tn@ty0bk+b+01e!h_&qtvm@$sovwi^qvl(_)z8+hs9@n2+5p#"
+SECRET_KEY = os.environ.get("SECRET_KEY")
 
+DEBUG = int(os.environ.get("DEBUG", default=0))
 
-DEBUG = True
-
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS").split(" ")
 
 # Questions
 # pre-commit install
@@ -46,7 +46,6 @@ Check isort и pre-commit (black) как будто противоречат д�
 -- (проверять, работает ли селери, фикстура mock) HARD
 -- получения детальной статистики отправленных сообщений по конкретной рассылке HARD
 
--- db navigator
 -- env/secret key / docker-compose
 -- nginx gunicorn
 -- купить сервер
