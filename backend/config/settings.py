@@ -25,13 +25,10 @@ ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS").split(" ")
 # ctrl alt o
 # ctrl d
 
-
-# TODO env
 # TODO testing big data factories boy
 # TODO do testing
 # TODO turn off endpoints???
 # TODO deploy
-# TODO добавить nginx gunicorn
 
 """
 Check прокидывание портов постгресс
@@ -46,7 +43,7 @@ Check isort и pre-commit (black) как будто противоречат д�
 -- (проверять, работает ли селери, фикстура mock) HARD
 -- получения детальной статистики отправленных сообщений по конкретной рассылке HARD
 
--- nginx gunicorn
+-- nginx
 -- купить сервер
 """
 
@@ -149,7 +146,13 @@ USE_I18N = True
 USE_TZ = True
 
 
-STATIC_URL = "static/"
+STATIC_URL = "/static/"
+
+STATIC_ROOT = os.path.join(BASE_DIR, "/static")
+
+MEDIA_URL = "/media/"
+
+MEDIA_ROOT = os.path.join(BASE_DIR, "/media")
 
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
