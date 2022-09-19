@@ -36,6 +36,7 @@ ALLOWED_HOSTS = []
 """
 Check прокидывание портов постгресс
 Check https://stackoverflow.com/questions/17843630/python-can-dumpdata-cannot-loaddata-back-unicodedecodeerror
+Check isort и pre-commit (black) как будто противоречат друг другу
 
 
 -- обновления атрибутов рассылки
@@ -45,7 +46,8 @@ Check https://stackoverflow.com/questions/17843630/python-can-dumpdata-cannot-lo
 -- (проверять, работает ли селери, фикстура mock) HARD
 -- получения детальной статистики отправленных сообщений по конкретной рассылке HARD
 
--- isort or analogs
+-- db navigator
+-- env/secret key / docker-compose
 -- nginx gunicorn
 -- купить сервер
 """
