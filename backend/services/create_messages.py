@@ -18,5 +18,4 @@ def create_messages(mailing, customers):
 
     messages = Message.objects.bulk_create(messages)
     messages_ids = [message.id for message in messages]
-
     send_messages.delay(messages_ids)

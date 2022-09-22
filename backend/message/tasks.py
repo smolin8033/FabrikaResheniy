@@ -21,6 +21,7 @@ def send_messages(messages_ids):
     """
     Отправка сообщений
     """
+
     for msg_id in messages_ids:
         send_message(msg_id)
 

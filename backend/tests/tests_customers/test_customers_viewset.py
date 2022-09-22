@@ -71,3 +71,7 @@ class TestCustomerViewSet:
         with django_assert_max_num_queries(1):
             response = api_client.get(url)
         assert response.status_code == status.HTTP_200_OK
+        res_json = response.json()
+        assert "phone_number" in res_json
+        assert "operator_code" in res_json
+
