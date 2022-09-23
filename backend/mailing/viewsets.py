@@ -1,10 +1,9 @@
 from drf_spectacular.utils import extend_schema
+from message.models import Message
+from message.serializers import MessageListSerializer
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet
-
-from message.models import Message
-from message.serializers import MessageListSerializer
 from services.check_conditions import check_conditions
 from services.serializer_validation_service import (
     serialize_and_validate_filter,

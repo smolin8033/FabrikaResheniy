@@ -1,8 +1,7 @@
 import pytest
+from customer.models import Customer
 from django.urls import reverse
 from rest_framework import status
-
-from customer.models import Customer
 from tests.tests_customers.factories.customer_factory import CustomerFactory
 
 

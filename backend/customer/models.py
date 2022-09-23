@@ -1,7 +1,6 @@
-from django.db import models
-
 from core.constants import TIMEZONES
 from core.validators import phone_number_regex
+from django.db import models
 
 
 class Customer(models.Model):

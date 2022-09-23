@@ -10,18 +10,6 @@ DEBUG = int(os.environ.get("DEBUG", default=0))
 
 ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS").split(" ")
 
-# Questions
-# pre-commit install
-# error: cannot format backend/mailing/migrations/0003_alter_mailing_managers.py: [Errno 13] Permission denied: 'backend/mailing/migrations/0003_alter_mailing_managers.py'
-# UnicodeDecodeError: 'utf-16-le' codec can't decode byte 0x0a in position 1180: truncated data
-# executor failed running [/bin/sh -c pip install -r requirements.txt]: exit code: 2
-# ^backend/.*.(py|pyi)$
-# должны быть такие большие блоки кода в тестах
-# вопросы по полям в фабриках
-
-# .*.
-# переопределить базу данных запускать локалхост
-# прокинуть postgres
 # ctrl alt o
 # ctrl d
 
@@ -33,7 +21,10 @@ ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS").split(" ")
 """
 Check прокидывание портов постгресс
 Check https://stackoverflow.com/questions/17843630/python-can-dumpdata-cannot-loaddata-back-unicodedecodeerror
-Check isort и pre-commit (black) как будто противоречат друг другу
+
+
+list смотреть на данные какие есть
+знеуые -л тфьу ща еуыек
 
 
 -- обновления атрибутов рассылки

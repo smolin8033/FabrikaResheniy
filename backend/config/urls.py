@@ -14,11 +14,10 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 import debug_toolbar
+from customer.routers import router as customers_router
 from django.contrib import admin
 from django.urls import include, path
 from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
-
-from customer.routers import router as customers_router
 from mailing.routers import router as mailings_router
 from message.routers import router as messages_router
 

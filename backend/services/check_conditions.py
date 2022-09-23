@@ -1,5 +1,4 @@
 from django.utils import timezone
-
 from services.create_messages import create_messages
 from services.filter_customers import filter_customers
 

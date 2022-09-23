@@ -1,8 +1,7 @@
 import pytest
 from django.urls import reverse
-from rest_framework import status
-
 from mailing.models import Mailing, MailingFilter
+from rest_framework import status
 from tests.tests_mailings.factories.mailing_factory import MailingFactory
 
 

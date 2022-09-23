@@ -1,7 +1,6 @@
+from customer.models import Customer
 from factory import Sequence
 from factory.django import DjangoModelFactory
-
-from customer.models import Customer
 
 
 class CustomerFactory(DjangoModelFactory):

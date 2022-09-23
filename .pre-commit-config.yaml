@@ -27,3 +27,10 @@ repos:
     hooks:
       - id: black
         exclude: ^.*\b(migrations)\b.*$
+
+  - repo: https://github.com/pycqa/isort
+    rev: 5.10.1
+    hooks:
+      - id: isort
+        name: isort (python)
+        args: ["--profile", "black"]

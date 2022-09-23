@@ -1,7 +1,6 @@
 from factory import SubFactory
 from factory.django import DjangoModelFactory
 from faker import Faker
-
 from mailing.models import Mailing, MailingFilter
 
 faker = Faker()

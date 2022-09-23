@@ -1,13 +1,12 @@
 from django.shortcuts import get_object_or_404
 from drf_spectacular.utils import extend_schema
+from mailing.models import Mailing
+from message.models import Message
+from message.serializers import MessageListSerializer
 from rest_framework import status
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework.viewsets import ReadOnlyModelViewSet
-
-from mailing.models import Mailing
-from message.models import Message
-from message.serializers import MessageListSerializer
 
 
 # TODO write docstrings in Russian
