@@ -13,6 +13,7 @@ def send_messages(messages_ids):
     """
     Отправка сообщений
     """
+    logger.debug(messages_ids)
     for msg_id in messages_ids:
         send_message(msg_id)
 

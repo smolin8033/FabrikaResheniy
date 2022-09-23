@@ -1,7 +1,10 @@
 import datetime
+import logging
 
 from message.models import Message
 from message.tasks import send_messages, send_not_sent_message
+
+logger = logging.getLogger(__name__)
 
 
 def create_messages(mailing, customers):
