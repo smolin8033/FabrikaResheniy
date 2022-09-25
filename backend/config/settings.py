@@ -25,6 +25,11 @@ Check https://stackoverflow.com/questions/17843630/python-can-dumpdata-cannot-lo
 list смотреть на данные какие есть
 знеуые -л тфьу ща еуыек
 
+Questions:
+
+with django_assert_max_num_queries(1):
+            response = api_client.get(url)
+почему фактори сообщения не нужен клиент
 
 -- обновления атрибутов рассылки
 -- (сложный случай: отправить запрос на внешний сервис подделать внешний сервис + pytest monkey patch (менять request - всегда ответ ок) +)
