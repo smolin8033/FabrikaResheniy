@@ -59,3 +59,17 @@ class TestMailingFilterViewSet:
         assert len(json_response) == 1
         assert json_response[0]["msg_sent_count"] == 3
         assert json_response[0]["msg_not_sent_count"] == 2
+
+    @pytest.mark.django_db
+    def test_action_mailing_with_messages(
+        self, api_client, django_assert_max_num_queries
+    ):
+        mailing = MailingFactory()
+        messages = [MessageFactory(mailing=mailing) for _ in range(3)]
+
+        url = reverse("messages-mailing-info", kwargs={"pk": mailing.pk})
+        response = api_client.get(url)
+
+        assert response.status_code == status.HTTP_200_OK
+        json_response = response.json()
+        assert len(json_response) == 3
